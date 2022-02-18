@@ -1,0 +1,6 @@
+deploy:
+  stage: deploy
+  script:
+    - echo "Application is going to up ..."
+    - npm install --global surge
+    - surge --project ./build --domain wtfisgoingon.surge.sh 

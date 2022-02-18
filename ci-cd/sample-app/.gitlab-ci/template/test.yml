@@ -1,6 +1,6 @@
-test-app:
+test:
   stage: test
-  image: node:15
   script:
+    - echo "Application is testing ..."
     - npm install
     - npm run test
