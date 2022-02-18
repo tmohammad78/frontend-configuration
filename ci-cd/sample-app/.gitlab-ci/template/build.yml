@@ -1,14 +1,17 @@
-.build-template:
-  image: node:15
+build:
   stage: build
-  retry: 2
+  # retry: 2
   script:
+    - echo "Application is building ..."
+    - echo $CI_COMMIT_SHORT_SHA
     - npm install
     - npm run build
+    - echo "built successfully"
   artifacts:
     name: ${PROJECT_NAME}
     paths:
-      - build.tar
+      - build
+      - node_modules/
     expire_in: 1 week
   cache:
     key: node_modules
