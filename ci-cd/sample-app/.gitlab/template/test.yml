@@ -1,0 +1,6 @@
+test-app:
+  stage: test
+  image: node:15
+  script:
+    - npm install
+    - npm run test

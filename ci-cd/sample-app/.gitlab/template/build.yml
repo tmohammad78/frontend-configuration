@@ -1,0 +1,16 @@
+.build-template:
+  image: node:15
+  stage: build
+  retry: 2
+  script:
+    - npm install
+    - npm run build
+  artifacts:
+    name: ${PROJECT_NAME}
+    paths:
+      - build.tar
+    expire_in: 1 week
+  cache:
+    key: node_modules
+    paths:
+      - node_modules
