@@ -1,0 +1,16 @@
+stages:
+  - test
+  - build
+  # - deploy
+
+variables:
+  # testing project name
+  PROJECT_NAME_TESTING: 'sample-testing-application'
+  # production
+  PROJECT_NAME: 'sample-application'
+
+include:
+  # templates
+  - local: '.gitlab-ci/template/build.yml'
+  - local: '.gitlab-ci/template/test.yml'
+  # - local: '.gitlab-ci/template/deploy.yml'
