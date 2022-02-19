@@ -1,0 +1,29 @@
+.input-wrapper {
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0px 0px 4px 0px rgb(0 0 0 / 30%);
+  padding: 1px;
+  margin: 15px 2px;
+  width: 300px;
+  display: block;
+}
+
+.focus {
+  border: 1px solid;
+}
+
+.input {
+  border: none !important;
+  font-size: inherit;
+  width: 94%;
+  height: 31px;
+  padding: 5px 8px;
+}
+
+.input:focus-visible {
+  outline: none;
+}
+
+.input:focus {
+  outline: none;
+}
