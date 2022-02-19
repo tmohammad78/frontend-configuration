@@ -1,0 +1,48 @@
+version: "3.2"
+services:
+  auth:
+    container_name: authentication_app
+    build:
+      context: ./auth
+      dockerfile: Dockerfile
+    ports:
+      - "8081:8081"
+    stdin_open: true
+    volumes:
+      - /app/node_modules
+      - ./auth:/app
+  app:
+    container_name: app
+    build:
+      context: ./app
+      dockerfile: Dockerfile
+    ports:
+      - "8082:8082"
+    stdin_open: true
+    volumes:
+      - /app/node_modules
+      - ./app:/app
+  container:
+    container_name: container_app
+    build:
+      context: ./container
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    stdin_open: true
+    volumes:
+      - /app/node_modules
+      - ./container:/app
+  # checkout:
+  #   container_name: checkout_app
+  #   build:
+  #     context: ./checkout
+  #     dockerfile: Dockerfile
+  #   ports:
+  #     - "8083:8083"
+  #   volumes:
+  #     - front_checkout/:/app/
+volumes:
+  container:
+  app:
+  auth:
