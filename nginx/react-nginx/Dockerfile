@@ -16,7 +16,7 @@ EXPOSE 3000
 
 RUN npm run build
 
-FROM nginx:alpine
+FROM nginx:1.15
 
 WORKDIR /usr/share/nginx/html
 
@@ -24,7 +24,9 @@ WORKDIR /usr/share/nginx/html
 RUN rm -rf *
 
 # Copy static assets from builder stage
-COPY --from=builder /app/build .
+COPY --from=builder /app/build /usr/share/nginx/html/
+# copy nginx config in the path
+COPY --from=builder /app/nginx/nginx.conf /etc/nginx/nginx.conf
 
 EXPOSE 80
 
