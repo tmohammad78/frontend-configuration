@@ -1,0 +1,36 @@
+version: '3'
+services:
+  main:
+    container_name: main
+    build:
+      context: ./main
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    networks:
+      - frontend-compose-network
+  reactapp:
+    container_name: reactapp
+    build:
+      context: ./react-app
+      dockerfile: Dockerfile
+    ports:
+      - "8081:80"
+    depends_on:
+      - main
+    networks:
+      - frontend-compose-network
+  vueapp:
+    container_name: vueapp
+    build:
+      context: ./vue-app
+      dockerfile: Dockerfile
+    ports:
+      - "8082:80"
+    depends_on:
+      - main
+    networks:
+      - frontend-compose-network
+networks: 
+  frontend-compose-network:
+    driver: bridge
