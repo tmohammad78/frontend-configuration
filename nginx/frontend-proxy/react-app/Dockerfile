@@ -25,7 +25,7 @@ RUN rm -rf *
 COPY --from=builder /app/build /usr/share/nginx/html/
 # copy nginx config in the path
 # COPY --from=builder /app/nginx/nginx.conf /etc/nginx/nginx.conf
-
+COPY nginx/nginx.conf /etc/nginx/conf.d/default.conf
 EXPOSE 3000 8081
 
 # Entry point when Docker container has started

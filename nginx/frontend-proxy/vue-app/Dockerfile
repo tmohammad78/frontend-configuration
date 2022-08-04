@@ -4,7 +4,7 @@ ENV NODE_ENV production
 
 WORKDIR /app
 
-COPY package.json ./
+COPY package.json package-lock.json ./
 
 RUN npm install
 
@@ -25,6 +25,7 @@ RUN rm -rf *
 COPY --from=builder /app/dist /usr/share/nginx/html/
 # copy nginx config in the path
 # COPY --from=builder /app/nginx/nginx.conf /etc/nginx/nginx.conf
+COPY nginx/nginx.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 3000 8082
 
