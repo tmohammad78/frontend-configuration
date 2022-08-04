@@ -20,6 +20,9 @@ services:
       - main
     networks:
       - frontend-compose-network
+    volumes:
+      - reactapp:/react-app
+      - node_modules:/react-app/node_modules
   vueapp:
     container_name: vueapp
     build:
@@ -31,6 +34,13 @@ services:
       - main
     networks:
       - frontend-compose-network
+    volumes:
+      - vueapp:/vue-app
+      - node_modules:/vue-app/node_modules
 networks: 
   frontend-compose-network:
     driver: bridge
+volumes:
+  node_modules:
+  vueapp:
+  reactapp:
