@@ -14,7 +14,7 @@ COPY . /app/
 
 RUN npm run build
 
-RUN npm prune --production
+# RUN npm prune --production
 
 FROM nginx:alpine
 
