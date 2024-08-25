@@ -10,17 +10,17 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-     <nav>
-      <ul>
-        <li>
-          <Link to="/about">About</Link>
-        </li>
-      </ul>
-     </nav>
-      <Routes >
-        <Route exact path="/"  element={<Home />} />
-        <Route path="/about" element={<About />} />
-      </Routes>
+      <nav>
+        <ul>
+          <li>
+            <Link to="/about">About</Link>
+          </li>
+        </ul>
+      </nav>
+        <Routes >
+          <Route exact path="/"  element={<Home />} />
+          <Route path="/about" element={<About />} />
+        </Routes>
     </div>
   );
 }

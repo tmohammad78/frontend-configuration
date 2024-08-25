@@ -7,6 +7,9 @@ services:
       dockerfile: Dockerfile
     ports:
       - "80:80"
+    depends_on: 
+      - reactapp
+      - vueapp
     networks:
       - frontend-compose-network
   reactapp:
@@ -15,9 +18,9 @@ services:
       context: ./react-app
       dockerfile: Dockerfile
     ports:
-      - "8081:80"
-    depends_on:
-      - main
+      - "81:80"
+    # depends_on:
+    #   - main
     networks:
       - frontend-compose-network
     volumes:
@@ -29,9 +32,9 @@ services:
       context: ./vue-app
       dockerfile: Dockerfile
     ports:
-      - "8082:80"
-    depends_on:
-      - main
+      - "82:80"
+    # depends_on:
+    #   - main
     networks:
       - frontend-compose-network
     volumes:

@@ -22,12 +22,12 @@ WORKDIR /usr/share/nginx/html
 RUN rm -rf *
 
 # Copy static assets from builder stage
-COPY --from=builder /app/build /usr/share/nginx/html/
+COPY --from=builder /app/dist /usr/share/nginx/html/
 # copy nginx config in the path
 # COPY --from=builder /app/nginx/nginx.conf /etc/nginx/nginx.conf
 COPY nginx/nginx.conf /etc/nginx/conf.d/default.conf
 
-EXPOSE 81
+EXPOSE 3000 8082
 
 # Entry point when Docker container has started
 ENTRYPOINT ["nginx", "-g", "daemon off;"]

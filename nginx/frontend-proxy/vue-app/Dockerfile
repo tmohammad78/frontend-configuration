@@ -1,6 +1,6 @@
 FROM node:16-alpine AS builder
 
-ENV NODE_ENV production
+# ENV NODE_ENV production
 
 WORKDIR /app
 
@@ -13,6 +13,8 @@ ENV NODE_PATH=/app/node_modules
 COPY . /app/
 
 RUN npm run build
+
+RUN npm prune --production
 
 FROM nginx:alpine
 
@@ -27,7 +29,7 @@ COPY --from=builder /app/dist /usr/share/nginx/html/
 # COPY --from=builder /app/nginx/nginx.conf /etc/nginx/nginx.conf
 COPY nginx/nginx.conf /etc/nginx/conf.d/default.conf
 
-EXPOSE 3000 8082
+EXPOSE 82
 
 # Entry point when Docker container has started
 ENTRYPOINT ["nginx", "-g", "daemon off;"]
