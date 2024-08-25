@@ -2,12 +2,13 @@
 This is sample project for practice reverse proxy
 
 I have React and Vue application and a main project that responsible for reverse proxing .
+If you want see app: http://localhost:80
 
 React App: <br />
-This project exposed on 8081 port, you can access to it with : http://localhost:80/react-app/
+This project exposed on 8081 port, you can access to it with : http://localhost:81/react-app/
 
 Vue App: <br />
-This project exposed on 8082 port , you can access to it with : http://localhost:80/vue-app/
+This project exposed on 8082 port , you can access to it with : http://localhost:82/vue-app/
 
 For Running 
 ```
