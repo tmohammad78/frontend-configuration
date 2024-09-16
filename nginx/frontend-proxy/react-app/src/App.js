@@ -7,7 +7,12 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import './App.css';
 
+const eventSample  = window.mfeEvent
+console.log(eventSample)
 function App() {
+  // eventSample.subscribe("auth",(data) => {
+  //   console.log(data)
+  // })
   return (
     <div className="App">
       <nav>
